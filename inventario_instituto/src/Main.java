@@ -42,10 +42,11 @@ public class Main {
         System.out.println("Introduce el elemento que quieres eliminar: ");
         String EleEliminar = sc.nextLine();
         for (int i = 0; i < inventario.length; i++) {
-            if (EleEliminar.equals(inventario[i])){
+            if (EleEliminar.equals(inventario[i])) {
                 inventario[i] = "";
             }
         }
+    }
 
     public static void eliminarProdPos(String[] inventario) {
         Scanner sc = new Scanner(System.in);
