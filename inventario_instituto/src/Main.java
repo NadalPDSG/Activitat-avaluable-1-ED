@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -8,6 +10,7 @@ public class Main {
         while (salir) {
             System.out.println("1) Mostrar lista de productos.");
             System.out.println("2) Eliminar producto por posición.");
+            System.out.println("3) Eliminar producto por nombre.");
             System.out.println("0) Salir.");
             System.out.print("Elige una opción: ");
             int opcion = sc.nextInt();
@@ -21,6 +24,9 @@ public class Main {
                 case 2:
                     eliminarProdPos(inventario);
                     break;
+                case 3:
+                    ElimProd(inventario);
+                    break;
             }
         }
     }
@@ -31,7 +37,17 @@ public class Main {
         }
     }
 
-    static void eliminarProdPos(String[] inventario) {
+    public static void ElimProd(String[] inventario) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce el elemento que quieres eliminar: ");
+        String EleEliminar = sc.nextLine();
+        for (int i = 0; i < inventario.length; i++) {
+            if (EleEliminar.equals(inventario[i])){
+                inventario[i] = "";
+            }
+        }
+
+    public static void eliminarProdPos(String[] inventario) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Que posición deseaas eliminar? ");
         int pos = sc.nextInt();
