@@ -11,6 +11,7 @@ public class Main {
             System.out.println("1) Mostrar lista de productos.");
             System.out.println("2) Eliminar producto por posición.");
             System.out.println("3) Eliminar producto por nombre.");
+            System.out.println("4) Añadir producto al inventario.");
             System.out.println("0) Salir.");
             System.out.print("Elige una opción: ");
             int opcion = sc.nextInt();
