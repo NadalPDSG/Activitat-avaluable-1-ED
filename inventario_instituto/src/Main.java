@@ -27,6 +27,9 @@ public class Main {
                 case 3:
                     ElimProd(inventario);
                     break;
+                case 4:
+                    añadirProd(inventario);
+                    break;
             }
         }
     }
@@ -42,15 +45,26 @@ public class Main {
         System.out.println("Introduce el elemento que quieres eliminar: ");
         String EleEliminar = sc.nextLine();
         for (int i = 0; i < inventario.length; i++) {
-            if (EleEliminar.equals(inventario[i])){
+            if (EleEliminar.equals(inventario[i])) {
                 inventario[i] = "";
             }
         }
+    }
 
     public static void eliminarProdPos(String[] inventario) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Que posición deseaas eliminar? ");
         int pos = sc.nextInt();
         inventario[pos] = "";
+    }
+
+    static void añadirProd(String[] tabla) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduzca el producto que quiera:");
+        String prod = sc.nextLine();
+        tabla = Arrays.copyOf(tabla, tabla.length + 1);
+        tabla[tabla.length - 1] = prod;
+        System.out.println(Arrays.toString(tabla));
+
     }
 }
