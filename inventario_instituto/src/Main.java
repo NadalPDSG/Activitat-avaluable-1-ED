@@ -27,6 +27,9 @@ public class Main {
                 case 3:
                     ElimProd(inventario);
                     break;
+                case 4:
+                    añadirProd(inventario);
+                    break;
             }
         }
     }
@@ -53,5 +56,15 @@ public class Main {
         System.out.print("Que posición deseaas eliminar? ");
         int pos = sc.nextInt();
         inventario[pos] = "";
+    }
+
+    static void añadirProd(String[] tabla) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduzca el producto que quiera:");
+        String prod = sc.nextLine();
+        tabla = Arrays.copyOf(tabla, tabla.length + 1);
+        tabla[tabla.length - 1] = prod;
+        System.out.println(Arrays.toString(tabla));
+
     }
 }
