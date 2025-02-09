@@ -15,7 +15,7 @@ public class Main {
             System.out.println("4) Sustituir producto.");
             System.out.println("5) Modificar nombre producto.");
             System.out.println("6) Mostrar lista de productos.");
-
+            System.out.println("7) Mostrar resumen del inventario.");
             System.out.println("8) Salir.");
             System.out.print("Elige una opción: ");
 
@@ -40,7 +40,9 @@ public class Main {
                 case 6:
                     mostrarListaProd(inventario);
                     break;
-                    
+                case 7:
+                    resumInventari(inventario);
+                    break;
                 case 8:
                     salir = false;
                     break;
@@ -147,4 +149,30 @@ public class Main {
         System.out.println("No se encontro '" + anticNom + "' en inventario.");
         return inventario;
     }
+
+    public static void resumInventari(String[] inventario) {
+        String[] productosUnicos = new String[inventario.length];
+        int[] cantidades = new int[inventario.length];
+        int numProductosUnicos = 0;
+    
+        for (int i = 0; i < inventario.length; i++) {
+            boolean encontrado = false;
+            for (int j = 0; j < numProductosUnicos; j++) {
+                if (inventario[i].equalsIgnoreCase(productosUnicos[j])) {
+                    cantidades[j]++;
+                    encontrado = true;
+                    break;
+                }
+            }
+            if (!encontrado) {
+                productosUnicos[numProductosUnicos] = inventario[i];
+                cantidades[numProductosUnicos] = 1;
+                numProductosUnicos++;
+            }
+        }
+    
+        for (int i = 0; i < numProductosUnicos; i++) {
+            System.out.println(productosUnicos[i] + " x" + cantidades[i]);
+        }
+    }    
 }
