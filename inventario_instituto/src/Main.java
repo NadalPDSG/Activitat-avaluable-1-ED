@@ -8,28 +8,36 @@ public class Main {
         boolean salir = true;
         String[] inventario = {"Ordinador", "Taula", "Cadira", "Llapis", "Goma"};
         while (salir) {
-            System.out.println("1) Mostrar lista de productos.");
-            System.out.println("2) Eliminar producto por posición.");
-            System.out.println("3) Eliminar producto por nombre.");
-            System.out.println("4) Añadir producto al inventario.");
-            System.out.println("0) Salir.");
+
+            System.out.println("1) Añadir producto.");
+            System.out.println("2) Eliminar producto por nombre.");
+            System.out.println("3) Eliminar producto por posición.");
+            System.out.println("4) Sustituir producto");
+
+            System.out.println("6) Mostrar lista de productos");
+
+            System.out.println("8) Salir.");
             System.out.print("Elige una opción: ");
             int opcion = sc.nextInt();
             switch (opcion) {
-                case 0:
-                    salir = false;
-                    break;
                 case 1:
-                    mostrarListaProd(inventario);
+                    añadirProd(inventario);
                     break;
                 case 2:
-                    eliminarProdPos(inventario);
-                    break;
-                case 3:
                     ElimProd(inventario);
                     break;
+                case 3:
+                    eliminarProdPos(inventario);
+                    break;
                 case 4:
-                    añadirProd(inventario);
+                    sustituirProdPos(inventario);
+                    break;
+                case 6:
+                    mostrarListaProd(inventario);
+                    break;
+
+                case 8:
+                    salir = false;
                     break;
             }
         }
@@ -57,6 +65,7 @@ public class Main {
         System.out.print("Que posición deseaas eliminar? ");
         int pos = sc.nextInt();
         inventario[pos] = "";
+        System.out.println(Arrays.toString(inventario));
     }
 
     static void añadirProd(String[] tabla) {
@@ -66,6 +75,22 @@ public class Main {
         tabla = Arrays.copyOf(tabla, tabla.length + 1);
         tabla[tabla.length - 1] = prod;
         System.out.println(Arrays.toString(tabla));
-
     }
+    static void sustituirProdPos(String[] tabla) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Producto que quiere sustituir:");
+        String prod = sc.nextLine();
+        String newProd;
+        for (int i = 0; i < tabla.length; i++) {
+            if (prod.equalsIgnoreCase(tabla[i])) {
+                System.out.println("¿Por cuál quiere sustituir?");
+                newProd = sc.nextLine();
+                tabla[i] = newProd;
+            }
+        }
+        System.out.println(Arrays.toString(tabla));
+    }
+
+
+
 }
