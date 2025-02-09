@@ -8,6 +8,7 @@ public class Main {
         boolean salir = true;
         String[] inventario = {"Ordinador", "Taula", "Cadira", "Llapis", "Goma"};
         while (salir) {
+
             System.out.println("1) Añadir producto.");
             System.out.println("2) Eliminar producto por nombre.");
             System.out.println("3) Eliminar producto por posición.");
